@@ -1,0 +1,71 @@
+/* =====================================================================
+   BACKGROUND EFFECTS (Orbs, Sky, Weather & WebGL Fluid Canvas)
+   ===================================================================== */
+
+/* ---------- Ambient gradient orbs (slow drift, behind everything) ---------- */
+.orbs{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.orbs i{position:absolute;border-radius:50%;filter:blur(70px);will-change:transform}
+.orbs i:nth-child(1){width:52vmax;height:52vmax;left:-14vmax;top:-16vmax;background:radial-gradient(circle,var(--orb1),transparent 65%);animation:drift1 26s ease-in-out infinite alternate}
+.orbs i:nth-child(2){width:44vmax;height:44vmax;right:-12vmax;top:18%;background:radial-gradient(circle,var(--orb2),transparent 65%);animation:drift2 32s ease-in-out infinite alternate}
+.orbs i:nth-child(3){width:40vmax;height:40vmax;left:28%;bottom:-18vmax;background:radial-gradient(circle,var(--orb3),transparent 65%);animation:drift3 38s ease-in-out infinite alternate}
+@keyframes drift1{to{transform:translate(9vmax,7vmax) scale(1.12)}}
+@keyframes drift2{to{transform:translate(-8vmax,10vmax) scale(.9)}}
+@keyframes drift3{to{transform:translate(-10vmax,-7vmax) scale(1.08)}}
+
+/* ---------- Sky decor per theme: sun / sunset horizon / moon & stars ---------- */
+.sky{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.sky>*{opacity:0;visibility:hidden;transition:opacity .8s ease,visibility .8s}
+/* Day: glowing sun, top right */
+:root[data-theme="day"] .sky .sun{opacity:1;visibility:visible}
+.sky .sun{position:absolute;top:8vh;right:10vw;width:clamp(90px,14vmin,170px);height:clamp(90px,14vmin,170px);border-radius:50%;
+  background:radial-gradient(circle,#fff3c4 0%,#ffd766 48%,rgba(255,200,80,.35) 66%,transparent 74%);
+  box-shadow:0 0 90px 40px rgba(255,195,75,.30);animation:sunGlow 7s ease-in-out infinite alternate}
+@keyframes sunGlow{to{box-shadow:0 0 130px 60px rgba(255,195,75,.42)}}
+/* Evening: setting sun on a warm horizon glow */
+:root[data-theme="evening"] .sky .sunset{opacity:1;visibility:visible}
+.sky .sunset{position:absolute;left:0;right:0;bottom:0;height:52vh;
+  background:radial-gradient(70% 85% at 50% 108%,rgba(251,146,60,.38),rgba(236,72,153,.26) 46%,rgba(147,112,219,.10) 70%,transparent 82%)}
+.sky .sunset::before{content:"";position:absolute;left:50%;bottom:calc(-1 * clamp(30px,6vmin,60px));transform:translateX(-50%);
+  width:clamp(130px,22vmin,230px);height:clamp(130px,22vmin,230px);border-radius:50%;
+  background:radial-gradient(circle,#ffe3b3 0%,#fdba74 42%,#fb923c 60%,transparent 76%);
+  box-shadow:0 0 120px 55px rgba(251,146,60,.38);animation:sunsetBreathe 9s ease-in-out infinite alternate}
+@keyframes sunsetBreathe{to{box-shadow:0 0 150px 70px rgba(251,146,60,.48)}}
+/* Night: full moon + twinkling stars */
+:root[data-theme="night"] .sky .moon,:root[data-theme="night"] .sky .stars{opacity:1;visibility:visible}
+.sky .moon{position:absolute;top:9vh;right:11vw;width:clamp(76px,11vmin,130px);height:clamp(76px,11vmin,130px);border-radius:50%;
+  background:radial-gradient(circle at 36% 34%,#f8fafc,#d9e0ea 62%,#9fb0c4);
+  box-shadow:0 0 70px 26px rgba(226,232,240,.16),inset -14px -12px 30px rgba(15,23,42,.38);
+  animation:moonDrift 40s ease-in-out infinite alternate}
+.sky .moon::before{content:"";position:absolute;inset:0;border-radius:50%;opacity:.5;
+  background:radial-gradient(14% 14% at 30% 58%,rgba(100,116,139,.8),transparent 70%),
+             radial-gradient(10% 10% at 58% 30%,rgba(100,116,139,.7),transparent 70%),
+             radial-gradient(8% 8% at 66% 64%,rgba(100,116,139,.7),transparent 70%),
+             radial-gradient(6% 6% at 44% 42%,rgba(100,116,139,.6),transparent 70%)}
+@keyframes moonDrift{to{transform:translate(-2vmin,1.5vmin)}}
+.sky .stars{position:absolute;inset:0}
+.sky .stars i{position:absolute;border-radius:50%;background:#e8eef7;opacity:.5;animation:twinkle var(--tw,3s) ease-in-out var(--td,0s) infinite alternate}
+@keyframes twinkle{from{opacity:.12;transform:scale(.7)}to{opacity:.95;transform:scale(1.15)}}
+
+/* ---------- Rainy weather layer (active only in the rainy theme) ---------- */
+.weather{position:fixed;inset:0;z-index:0;pointer-events:none;display:none}
+:root[data-theme="rainy"] .weather{display:block}
+.weather canvas{position:absolute;inset:0;width:100%;height:100%}
+.weather .clouds{position:absolute;left:-10%;right:-10%;top:-16vh;height:46vh;filter:blur(26px);opacity:.85;
+  background:
+    radial-gradient(42% 58% at 12% 36%,rgba(10,14,20,.95),transparent 70%),
+    radial-gradient(36% 52% at 38% 22%,rgba(16,21,30,.9),transparent 70%),
+    radial-gradient(44% 60% at 64% 38%,rgba(8,11,17,.95),transparent 70%),
+    radial-gradient(38% 54% at 88% 26%,rgba(15,20,29,.9),transparent 70%),
+    radial-gradient(60% 70% at 50% 0%,rgba(5,8,12,.98),transparent 80%);
+  animation:cloudDrift 60s ease-in-out infinite alternate}
+@keyframes cloudDrift{to{transform:translateX(-4%) scale(1.06)}}
+.weather .flash{position:absolute;inset:0;opacity:0;
+  background:radial-gradient(ellipse at var(--fx,50%) -10%,rgba(255,255,255,.95),rgba(173,196,255,.35) 38%,transparent 72%)}
+.weather .flash.go{animation:lightning 1s ease-out both}
+@keyframes lightning{0%{opacity:0}6%{opacity:1}14%{opacity:.15}22%{opacity:.8}32%{opacity:.1}40%{opacity:.35}100%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.weather canvas,.weather .flash{display:none!important}}
+
+/* ---------- Fluid cursor canvas (sits behind everything) ---------- */
+#fluid{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;opacity:0;transition:opacity 1.2s ease}
+#fluid.on{opacity:1}
+body.in-chat #fluid.on{opacity:.75}

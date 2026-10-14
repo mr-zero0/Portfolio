@@ -1,0 +1,106 @@
+/* =====================================================================
+   THEME DESIGN TOKENS & CSS VARIABLES
+   ===================================================================== */
+:root{
+  --bg:#ffffff; --fg:#09090b; --fg-2:#374151; --muted:#6b7280;
+  --border:#e4e4e7; --border-strong:#d4d4d8;
+  --accent:#0171e3; --accent-hover:#0062c7;
+  --accent-fg:#ffffff; --accent-tint:rgba(1,113,227,.08); --accent-tint-border:rgba(1,113,227,.25);
+  --card:#ffffff; --surface:#f4f4f5; --surface-2:#fafafa;
+  --input-bg:#ececf0; --input-border:#e5e5e9;
+  --chip-bg:rgba(255,255,255,.45);
+  --placeholder:#6f7681;
+  --glass-edge:rgba(255,255,255,.65);
+  --shadow-sm:0 1px 2px rgba(9,9,11,.05),0 1px 1px rgba(9,9,11,.03);
+  --shadow:0 2px 4px rgba(9,9,11,.06),0 12px 24px -8px rgba(9,9,11,.14);
+  --shadow-lg:0 4px 8px rgba(9,9,11,.08),0 28px 56px -16px rgba(9,9,11,.28);
+  --word:rgba(115,115,115,.16);
+  --ring:rgba(1,113,227,.35);
+  --orb1:rgba(1,113,227,.12); --orb2:rgba(168,85,247,.10); --orb3:rgba(20,184,166,.10);
+}
+@media (prefers-color-scheme:dark){
+  :root:where(:not([data-theme="day"])){
+    --bg:#0a0a0a; --fg:#fafafa; --fg-2:#d4d4d8; --muted:#a1a1aa;
+    --border:rgba(255,255,255,.09); --border-strong:rgba(255,255,255,.17);
+    --card:rgba(23,23,26,.82); --surface:#1c1c1f; --surface-2:#18181b;
+    --input-bg:#1f1f23; --input-border:#2e2e33;
+    --chip-bg:rgba(255,255,255,.05);
+    --placeholder:#8b8b93;
+    --glass-edge:rgba(255,255,255,.12);
+    --shadow-sm:0 1px 2px rgba(0,0,0,.4);
+    --shadow:0 2px 4px rgba(0,0,0,.4),0 12px 28px -8px rgba(0,0,0,.6);
+    --shadow-lg:0 4px 10px rgba(0,0,0,.5),0 30px 60px -16px rgba(0,0,0,.75);
+    --word:rgba(255,255,255,.11);
+    --orb1:rgba(37,99,235,.17); --orb2:rgba(99,102,241,.13); --orb3:rgba(6,182,212,.10);
+  }
+}
+/* ---- Time-of-day themes (icon cycle in the top bar) ---- */
+:root[data-theme="rainy"]{
+  --bg:#0d1218; --fg:#e8edf4; --fg-2:#c3cdd9; --muted:#8a97a8;
+  --border:rgba(148,163,184,.14); --border-strong:rgba(148,163,184,.27);
+  --accent:#38bdf8; --accent-hover:#0ea5e9;
+  --accent-fg:#0d1218; --accent-tint:rgba(56,189,248,.10); --accent-tint-border:rgba(56,189,248,.30);
+  --card:rgba(20,27,36,.82); --surface:#1a222d; --surface-2:#161d26;
+  --input-bg:#1a2230; --input-border:#273244;
+  --chip-bg:rgba(148,163,184,.07);
+  --placeholder:#7e8a9a;
+  --glass-edge:rgba(203,213,225,.14);
+  --shadow-sm:0 1px 2px rgba(0,0,0,.45);
+  --shadow:0 2px 4px rgba(0,0,0,.45),0 12px 28px -8px rgba(0,0,0,.65);
+  --shadow-lg:0 4px 10px rgba(0,0,0,.55),0 30px 60px -16px rgba(0,0,0,.8);
+  --word:rgba(148,163,184,.13);
+  --ring:rgba(56,189,248,.4);
+  --orb1:rgba(56,96,146,.20); --orb2:rgba(71,85,105,.18); --orb3:rgba(14,116,144,.12);
+}
+:root[data-theme="day"]{
+  --bg:#ffffff; --fg:#09090b; --fg-2:#374151; --muted:#6b7280;
+  --border:#e4e4e7; --border-strong:#d4d4d8;
+  --accent:#0171e3; --accent-hover:#0062c7;
+  --accent-fg:#ffffff; --accent-tint:rgba(1,113,227,.08); --accent-tint-border:rgba(1,113,227,.25);
+  --card:#ffffff; --surface:#f4f4f5; --surface-2:#fafafa;
+  --input-bg:#ececf0; --input-border:#e5e5e9;
+  --chip-bg:rgba(255,255,255,.45);
+  --placeholder:#6f7681;
+  --glass-edge:rgba(255,255,255,.65);
+  --word:rgba(115,115,115,.16);
+  --ring:rgba(1,113,227,.35);
+  --orb1:rgba(1,113,227,.12); --orb2:rgba(168,85,247,.10); --orb3:rgba(20,184,166,.10);
+}
+:root[data-theme="evening"]{
+  --bg:#3b2149; --fg:#fff3e8; --fg-2:#f3d9c6; --muted:#cfa78f;
+  --border:rgba(255,196,146,.18); --border-strong:rgba(255,196,146,.32);
+  --accent:#fb923c; --accent-hover:#f97316;
+  --accent-fg:#3b2149; --accent-tint:rgba(251,146,60,.12); --accent-tint-border:rgba(251,146,60,.32);
+  --card:rgba(78,43,92,.80); --surface:#4e2d5e; --surface-2:#452754;
+  --input-bg:#4e2d5e; --input-border:#643c74;
+  --chip-bg:rgba(255,205,160,.09);
+  --placeholder:#c9a28a;
+  --glass-edge:rgba(255,222,185,.20);
+  --shadow-sm:0 1px 2px rgba(26,10,32,.5);
+  --shadow:0 2px 4px rgba(26,10,32,.45),0 12px 28px -8px rgba(26,10,32,.6);
+  --shadow-lg:0 4px 10px rgba(26,10,32,.55),0 30px 60px -16px rgba(26,10,32,.75);
+  --word:rgba(255,196,130,.18);
+  --ring:rgba(251,146,60,.45);
+  --orb1:rgba(251,146,60,.30); --orb2:rgba(236,72,153,.22); --orb3:rgba(147,112,219,.18);
+}
+:root[data-theme="night"]{
+  --bg:#0a0a0a; --fg:#fafafa; --fg-2:#d4d4d8; --muted:#a1a1aa;
+  --border:rgba(255,255,255,.09); --border-strong:rgba(255,255,255,.17);
+  --accent:#0171e3; --accent-hover:#2f8ff0;
+  --accent-fg:#ffffff; --accent-tint:rgba(1,113,227,.12); --accent-tint-border:rgba(1,113,227,.35);
+  --card:rgba(23,23,26,.82); --surface:#1c1c1f; --surface-2:#18181b;
+  --input-bg:#1f1f23; --input-border:#2e2e33;
+  --chip-bg:rgba(255,255,255,.05);
+  --placeholder:#8b8b93;
+  --glass-edge:rgba(255,255,255,.12);
+  --shadow-sm:0 1px 2px rgba(0,0,0,.4);
+  --shadow:0 2px 4px rgba(0,0,0,.4),0 12px 28px -8px rgba(0,0,0,.6);
+  --shadow-lg:0 4px 10px rgba(0,0,0,.5),0 30px 60px -16px rgba(0,0,0,.75);
+  --word:rgba(255,255,255,.11);
+  --ring:rgba(1,113,227,.35);
+  --orb1:rgba(37,99,235,.17); --orb2:rgba(99,102,241,.13); --orb3:rgba(6,182,212,.10);
+}
+/* smooth theme crossfade — class is added by JS only while switching */
+body.theme-anim,body.theme-anim *,body.theme-anim *::before,body.theme-anim *::after{
+  transition:background-color .8s ease,background .8s ease,color .8s ease,border-color .8s ease,box-shadow .8s ease,fill .8s ease!important;
+}

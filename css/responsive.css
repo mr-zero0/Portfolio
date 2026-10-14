@@ -1,0 +1,44 @@
+/* =====================================================================
+   RESPONSIVE LAYOUT & ERGONOMICS
+   ===================================================================== */
+@media (max-width:639px){
+  .carousel{margin:0 -20px;padding-left:20px;padding-right:20px;scroll-padding-left:20px}
+  .pcard{width:min(268px,78vw)}
+  .nav{display:none}
+  .chips{grid-template-columns:repeat(auto-fit,minmax(96px,1fr))}
+  .role{padding-left:46px}
+  .role-logo{width:34px;height:34px;border-radius:10px}
+  .role::before{left:16px;top:40px}
+  .role-dates{white-space:normal}
+}
+@media (pointer:coarse){
+  .nav button{width:44px;height:44px}
+  .modal-close{width:44px;height:44px}
+  .icon-btn{width:44px;height:44px}
+  .toggle-quick{padding:10px 14px}
+  .chip,.ask-wrap{backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+}
+@media (max-width:639px){
+  .overlay{align-items:flex-end;padding:0}
+  .modal{max-width:none;border-radius:24px 24px 0 0;max-height:calc(100dvh - 48px - env(safe-area-inset-top));animation:sheetUp .3s cubic-bezier(.2,.8,.2,1) both}
+  .modal-body{padding-bottom:calc(24px + env(safe-area-inset-bottom))}
+}
+@keyframes sheetUp{from{transform:translateY(40px);opacity:0}to{transform:none;opacity:1}}
+@media (max-height:480px){
+  .landing{min-height:auto;padding-top:72px}
+  .avatar-wrap{width:120px;height:120px;margin:16px 0 18px}
+  .bg-word{display:none}
+}
+@media (min-width:1440px){
+  .thread{max-width:880px}
+  .chips{max-width:880px}
+  .composer{max-width:920px}
+}
+body.in-chat .topbar::before{content:"";position:absolute;inset:0 0 -28px;z-index:-1;pointer-events:none;backdrop-filter:blur(12px) saturate(150%);-webkit-backdrop-filter:blur(12px) saturate(150%);-webkit-mask-image:linear-gradient(to bottom,#000 55%,transparent);mask-image:linear-gradient(to bottom,#000 55%,transparent)}
+.modal{box-shadow:var(--shadow-lg)}
+.topbar,.landing,.messages{padding-left:max(16px,env(safe-area-inset-left));padding-right:max(16px,env(safe-area-inset-right))}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  #fluid,.orbs{display:none}
+}

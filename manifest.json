@@ -1,0 +1,13 @@
+{
+  "name": "Mohd Aman · Forward Deployed Engineer",
+  "short_name": "Mohd Aman",
+  "description": "Interactive portfolio of Mohd Aman — GenAI and agentic AI for enterprise banking.",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0171e3",
+  "icons": [
+    { "src": "assets/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "assets/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

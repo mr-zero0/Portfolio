@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mohd Aman · Forward Deployed Engineer</title>
+<meta name="description" content="Portfolio of Mohd Aman — Forward Deployed Engineer at HCLTech building GenAI and agentic AI solutions for enterprise banking workflows.">
+<meta property="og:title" content="Mohd Aman · Forward Deployed Engineer">
+<meta property="og:description" content="GenAI and agentic AI for enterprise banking workflows. Python, C#/.NET, Jira/Confluence/GitHub/Bitbucket integrations.">
+<meta property="og:type" content="website">
+<!-- NOTE: after deploying, replace og:image/og:url with the absolute URL of your site -->
+<meta property="og:image" content="assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mohd Aman · Forward Deployed Engineer">
+<meta name="twitter:description" content="GenAI and agentic AI for enterprise banking workflows.">
+<meta name="twitter:image" content="assets/og-image.png">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Mohd Aman",
+  "jobTitle": "Forward Deployed Engineer",
+  "worksFor": { "@type": "Organization", "name": "HCLTech" },
+  "address": { "@type": "PostalAddress", "addressLocality": "Meerut", "addressRegion": "Uttar Pradesh", "addressCountry": "IN" },
+  "email": "mailto:amanczn@gmail.com",
+  "image": "assets/avatar.png",
+  "alumniOf": { "@type": "CollegeOrUniversity", "name": "Indian Institute of Information Technology, Una" },
+  "sameAs": [
+    "https://linkedin.com/in/mrzero0",
+    "https://github.com/mr-zero0",
+    "https://www.hackerearth.com/@mr.zero"
+  ],
+  "knowsAbout": ["Generative AI", "Agentic AI", "RAG", "Multi-Agent Systems", "Python", "C#", ".NET"]
+}
+</script>
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%230171e3'/%3E%3Ctext x='16' y='21.5' text-anchor='middle' font-family='Inter,Segoe UI,Arial,sans-serif' font-size='13' font-weight='800' fill='white'%3EMA%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<script>
+/* set the time-of-day theme before first paint to avoid a flash */
+(function(){
+  var t = null;
+  try { t = localStorage.getItem('tod-theme'); } catch (e) {}
+  if (!t || ['day','evening','night','rainy'].indexOf(t) < 0) {
+    var h = new Date().getHours(); t = h >= 5 && h < 17 ? 'day' : h < 20 ? 'evening' : 'night';
+  }
+  document.documentElement.dataset.theme = t;
+  var bars = { day: '#ffffff', evening: '#3b2149', night: '#0a0a0a', rainy: '#0d1218' };
+  document.addEventListener('DOMContentLoaded', function () {
+    var c = bars[t];
+    var metas = document.querySelectorAll('meta[name="theme-color"]');
+    for (var i = 0; i < metas.length; i++) metas[i].setAttribute('content', c);
+  });
+})();
+</script>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="orbs" aria-hidden="true"><i></i><i></i><i></i></div>
+<canvas id="fluid" aria-hidden="true"></canvas>
+<div class="sky" aria-hidden="true">
+  <div class="sun"></div>
+  <div class="sunset"></div>
+  <div class="moon"></div>
+  <div class="stars" id="stars"></div>
+</div>
+<div class="weather" aria-hidden="true">
+  <div class="clouds"></div>
+  <canvas id="rain"></canvas>
+  <div class="flash" id="flash"></div>
+</div>
+
+<header class="topbar">
+  <div class="clock" id="clock" aria-hidden="true">
+    <span class="t" id="clockTime"></span>
+    <span class="d" id="clockDate"></span>
+  </div>
+  <button class="logo-btn" id="logoBtn" type="button" aria-label="Home">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="currentColor"/><text x="16" y="21.5" text-anchor="middle" font-family="Inter,Segoe UI,Arial,sans-serif" font-size="13" font-weight="800" fill="var(--bg)">MA</text></svg>
+  </button>
+  <button class="icon-btn" id="themeBtn" type="button" aria-label="Switch theme">
+    <svg class="icon" viewBox="0 0 24 24" id="themeIcon" aria-hidden="true"></svg>
+  </button>
+</header>
+
+<!-- ============ Landing ============ -->
+<main id="landing" class="landing">
+  <div class="bg-word" aria-hidden="true"><span>Aman</span></div>
+
+  <div class="hero">
+    <p class="hey">Hey, I'm Aman <span class="wave">👋</span></p>
+    <h1>Forward Deployed Engineer</h1>
+  </div>
+
+  <div class="avatar-wrap">
+    <div class="avatar-float">
+      <div class="avatar" id="avatar">
+        <img id="heroImg" src="assets/avatar.png" alt="Illustrated portrait of Mohd Aman" width="400" height="400"
+             onerror="this.onerror=null;this.src='https://avatars.githubusercontent.com/u/31819454?s=400&v=4'">
+      </div>
+    </div>
+  </div>
+
+  <form class="ask" id="landingForm" autocomplete="off">
+    <div class="ask-wrap">
+      <input id="landingInput" type="text" placeholder="Ask me anything…" aria-label="Ask me anything" maxlength="200">
+      <button class="send" type="submit" aria-label="Submit question">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </button>
+    </div>
+  </form>
+
+  <div class="chips" id="landingChips"></div>
+
+  <a class="resume-pill" href="assets/Mohd_Aman_AI_FDE_Resume.pdf" download>
+    <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+    <span>Download résumé</span>
+  </a>
+</main>
+
+<!-- ============ Chat ============ -->
+<section id="chat" class="chat hidden">
+  <div class="messages" id="messages">
+    <div class="thread" id="thread" role="log" aria-label="Conversation"></div>
+  </div>
+  <div class="composer">
+    <button class="toggle-quick" id="toggleQuick" type="button">
+      <svg class="icon" viewBox="0 0 24 24" id="toggleIcon"><path d="m6 9 6 6 6-6"/></svg>
+      <span id="toggleLabel">Hide quick questions</span>
+    </button>
+    <div class="quick" id="quickRow"></div>
+    <form class="ask" id="chatForm" autocomplete="off">
+      <div class="ask-wrap">
+        <input id="chatInput" type="text" placeholder="Ask me anything" aria-label="Ask me anything" maxlength="200">
+        <button class="send" type="submit" aria-label="Submit question">
+          <svg class="icon" viewBox="0 0 24 24"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg>
+        </button>
+      </div>
+    </form>
+    <p class="foot">Built by <a href="https://github.com/mr-zero0" target="_blank" rel="noopener">Mohd Aman</a></p>
+  </div>
+</section>
+
+<div id="modalRoot"></div>
+
+<!-- Personal Data (Isolated) -->
+<script src="data/personalData.js"></script>
+
+<!-- Application Modules -->
+<script src="js/icons.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/modal.js"></script>
+<script src="js/cards.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/chat.js"></script>
+<script src="js/effects.js"></script>
+<script src="js/fluid.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>
