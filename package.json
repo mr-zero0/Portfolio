@@ -1,4 +1,6 @@
 {
+  "name": "portfolio",
+  "homepage": "https://mr-zero0.github.io/Portfolio/",
   "devDependencies": {
     "@playwright/test": "^1.64.1"
   }

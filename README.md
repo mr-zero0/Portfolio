@@ -1,5 +1,7 @@
 # Mohd Aman · Portfolio
 
+> 🌐 **Live Site:** [https://mr-zero0.github.io/Portfolio/](https://mr-zero0.github.io/Portfolio/)
+
 Modular, chat-style portfolio. No build step, no backend: clean HTML structure, decoupled CSS layers, isolated personal data, and focused JavaScript modules.
 
 ## Architecture & Project Structure
@@ -48,11 +50,13 @@ python -m http.server 8765 --directory Portfolio
 
 Then open <http://localhost:8765/>. Opening `index.html` directly from disk also works.
 
-## Deploy (GitHub Pages)
+## Live Deployment (GitHub Pages)
 
-1. Push this folder to a repo (for example `mr-zero0/mr-zero0.github.io`, or any repo with Pages enabled).
-2. Settings → Pages → deploy from the branch root (or the `Portfolio` folder).
-3. Deep links work: `https://<your-site>/?query=What%20are%20your%20skills%3F` opens straight into the chat.
+The portfolio is deployed live via GitHub Pages:
+👉 **[https://mr-zero0.github.io/Portfolio/](https://mr-zero0.github.io/Portfolio/)**
+
+Deep links work directly into the conversation:
+`https://mr-zero0.github.io/Portfolio/?query=What%20are%20your%20skills%3F` opens straight into the chat.
 
 ## Editing Personal Data
 
