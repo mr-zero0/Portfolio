@@ -1,0 +1,10 @@
+node_modules/
+.git/
+tests/
+test-results/
+playwright-report/
+.aiforce*
+package.json
+package-lock.json
+playwright.config.js
+README.md
